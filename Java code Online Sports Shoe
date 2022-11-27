@@ -1,0 +1,422 @@
+
+package onlineshoesshop;
+import java.util.*;
+
+/**@author Ali Haider */
+
+abstract class Admin
+{
+    abstract void Register();
+    abstract void Login(String Password,String Email);
+    abstract void Updateprofile();
+    abstract void Customerdetail();
+    
+}
+
+
+
+
+class Customer extends Admin{
+    private String Customername;
+    public String Email;
+    protected String Password;
+    private String Address;
+    private int Phone;
+
+    public Customer(String Customername, String Email, String Password) {
+        this.Customername = Customername;
+        this.Email = Email;
+        this.Password = Password;
+    }
+
+    public String getCustomername() {
+        return Customername;
+    }
+    public void setCustomername(String Customername) {
+        this.Customername = Customername;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String Address) {
+        this.Address = Address;
+    }
+
+    public int getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(int Phone) {
+        this.Phone = Phone;
+    }
+    
+    @Override
+    public void Register()
+    {
+        System.out.println("User is Registered");
+    }
+    @Override
+    public void Login(String Password,String Email)
+    {
+        System.out.println("Login Successfully");
+    }
+    @Override
+    public void Updateprofile()
+    {
+        System.out.println("Profile Updated Successfully");
+    }
+    public void PlaceOrder()
+    {
+        System.out.println("Order Placed");
+    }
+    
+    @Override
+    public void Customerdetail()
+    {
+        System.out.println("\n****Customer Details****");
+        System.out.println("CustomerName ;"+getCustomername()+
+                "\nEmail :"+getEmail()+"\nPassword :"+getPassword());
+    }
+}
+
+
+class Products
+{
+private int Card_id;
+private int Product_id;
+private int Product_Quantity;
+private double Product_Price;
+
+    public int getCard_id() {
+        return Card_id;
+    }
+
+    public void setCard_id(int Card_id) {
+        this.Card_id = Card_id;
+    }
+
+    public int getProduct_id() {
+        return Product_id;
+    }
+
+    public void setProduct_id(int Product_id) {
+        this.Product_id = Product_id;
+    }
+
+    public int getProduct_Quantity() {
+        return Product_Quantity;
+    }
+
+    public void setProduct_Quantity(int Product_Quantity) {
+        this.Product_Quantity = Product_Quantity;
+    }
+
+    public double getProduct_Price() {
+        return Product_Price;
+    }
+
+    public void setProduct_Price(double Product_Price) {
+        this.Product_Price = Product_Price;
+    }
+
+    public void Additem()
+    {
+        System.out.println("Item is Added Successfully");
+    }
+    public void UpdateQuanity()
+    {
+        System.out.println("Quantity of product is Updated");
+    }
+    public void Removeitem()
+    {
+        System.out.println("Item is Removed Successfully");
+    }
+    
+}
+
+
+class order
+{
+    private int Orderid;
+    private int Shippingid;
+    private int Customerid;
+    private String Customername;
+    private String ShippingDate;
+    private String Placedate;
+    private String Status;
+
+    public int getOrderid() {
+        return Orderid;
+    }
+
+    public void setOrderid(int Orderid) {
+        this.Orderid = Orderid;
+    }
+
+    public int getShippingid() {
+        return Shippingid;
+    }
+
+    public void setShippingid(int Shippingid) {
+        this.Shippingid = Shippingid;
+    }
+
+    public int getCustomerid() {
+        return Customerid;
+    }
+
+    public void setCustomerid(int Customerid) {
+        this.Customerid = Customerid;
+    }
+
+    public String getCustomername() {
+        return Customername;
+    }
+
+    public void setCustomername(String Customername) {
+        this.Customername = Customername;
+    }
+
+    public String getShippingDate() {
+        return ShippingDate;
+    }
+
+    public void setShippingDate(String ShippingDate) {
+        this.ShippingDate = ShippingDate;
+    }
+
+    public String getPlacedate() {
+        return Placedate;
+    }
+
+    public void setPlacedate(String Placedate) {
+        this.Placedate = Placedate;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+    
+    public void PlaceOrder(int Orderid,String Customername,int Placedate)
+    {
+        System.out.println("Order Placed Successfully");
+    }
+    
+    
+}
+
+
+class orderdetail extends order
+{
+    private int Productid;
+    private String Productname;
+    private int Quantity;
+    private double Productcost;
+    private double Subtotal;
+
+    public orderdetail(int Productid, String Productname, int Quantity, double Productcost, double Subtotal) {
+        this.Productid = Productid;
+        this.Productname = Productname;
+        this.Quantity = Quantity;
+        this.Productcost = Productcost;
+        this.Subtotal = Subtotal;
+    }
+
+    public int getProductid() {
+        return Productid;
+    }
+
+    public void setProductid(int Productid) {
+        this.Productid = Productid;
+    }
+
+    public String getProductname() {
+        return Productname;
+    }
+
+    public void setProductname(String Productname) {
+        this.Productname = Productname;
+    }
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int Quantity) {
+        this.Quantity = Quantity;
+    }
+
+    public double getProductcost() {
+        return Productcost;
+    }
+
+    public void setProductcost(double Productcost) {
+        this.Productcost = Productcost;
+    }
+
+    public double getSubtotal() {
+        return Subtotal;
+    }
+
+    public void setSubtotal(double Subtotal) {
+        this.Subtotal = Subtotal;
+    }
+    
+    
+    public double Calprice(double Productcost)
+    {
+        return Productcost;
+    }
+}
+
+class  Payment{
+    private int Paymentid;
+    private float Amount;
+    private String Paymentdate;
+
+    public Payment(int Paymentid, float Amount, String Paymentdate) {
+        this.Paymentid = Paymentid;
+        this.Amount = Amount;
+        this.Paymentdate = Paymentdate;
+    }
+
+    public int getPaymentid() {
+        return Paymentid;
+    }
+
+    public void setPaymentid(int Paymentid) {
+        this.Paymentid = Paymentid;
+    }
+
+    public float getAmount() {
+        return Amount;
+    }
+
+    public void setAmount(float Amount) {
+        this.Amount = Amount;
+    }
+
+    public String getPaymentdate() {
+        return Paymentdate;
+    }
+
+    public void setPaymentdate(String Paymentdate) {
+        this.Paymentdate = Paymentdate;
+    }
+    
+    public void Addpayment(float Amount)
+    {
+        System.out.println("Payment Added Successfully");
+    }
+    public void Editpayment()
+    {
+        System.out.println("Payment Updated");
+    }
+    
+    public void Deletepayment()
+    {
+        System.out.println("Payment Deleted");
+    }}
+
+class Shippinginfo
+{
+    private int Shippingid;
+    private String Shippingtype;
+    private float Shippingcost;
+    private int Shippingregionid;
+
+    
+    
+    public Shippinginfo(int Shippingid, String Shippingtype, float Shippingcost, int Shippingregionid) {
+        this.Shippingid = Shippingid;
+        this.Shippingtype = Shippingtype;
+        this.Shippingcost = Shippingcost;
+        this.Shippingregionid = Shippingregionid;
+    }
+    
+    public int getShippingid() {
+        return Shippingid;
+    }
+
+    public void setShippingid(int Shippingid) {
+        this.Shippingid = Shippingid;
+    }
+
+    public String getShippingtype() {
+        return Shippingtype;
+    }
+
+    public void setShippingtype(String Shippingtype) {
+        this.Shippingtype = Shippingtype;
+    }
+
+    public float getShippingcost() {
+        return Shippingcost;
+    }
+
+    public void setShippingcost(float Shippingcost) {
+        this.Shippingcost = Shippingcost;
+    }
+
+    public int getShippingregionid() {
+        return Shippingregionid;
+    }
+
+    public void setShippingregionid(int Shippingregionid) {
+        this.Shippingregionid = Shippingregionid;
+    }
+
+    
+    
+    public void Updateshippinginfo( int Shippingid,String Shippingtype,float Shippingcost)
+    {
+        this.Shippingid=Shippingid;
+        this.Shippingtype=Shippingtype;
+        this.Shippingcost=Shippingcost;
+        System.out.println("Infomation Updated Successfully");
+    }
+}
+
+
+
+
+public class OnlineShoesShop {
+
+    public static void main(String[] args) {
+
+    Scanner user = new Scanner(System.in);
+    System.out.println("**Please Login**");
+    System.out.print("Enter User name or Email :");
+    String Email=user.next();
+    Scanner pass = new Scanner(System.in);
+    System.out.print("Enter Password :");
+    String Pass=pass.nextLine();
+    Admin Customer=new Customer("Ali Haider",Email,Pass);
+    Customer.Login(Pass,Email);
+    Customer.Customerdetail(); 
+    Customer.Updateprofile();
+    
+    }
+}
